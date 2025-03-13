@@ -93,3 +93,15 @@ The dataset contains only **1 table** with customer and transaction-related data
 
 </details>
 
+## **⚒️ Main Process
+
+1️⃣ **Exploratory Data Analysis (EDA)**  
+
+2️⃣ **Train & Apply Churn Prediction Model**  
+
+3️⃣ **Key Findings and Recommendations for Retention**  
+
+4️⃣ **Customer Segmentation By Clustering**  
+
+5️⃣ **Insights & Recommendations**
+
