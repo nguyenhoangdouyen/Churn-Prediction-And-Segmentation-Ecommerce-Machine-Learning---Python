@@ -1,1 +1,1 @@
-# Customer-Retention-Strategies-Churn-Prediction-Segmentation-Ecommerce-Machine-Learning---Python
+# **Churn Prediction & Segmentation For Retention Strategy | Ecommerce | Machine Learning - Python**
