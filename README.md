@@ -26,6 +26,7 @@ This project focuses on **predicting and segmenting churned users** in an e-comm
 
 ✔️ Segment churned users to personalize retention offers and promotions.
 
+
 **❓ What Business Question Will It Solve?**
 
 ✔️ What factors contribute to customer churn in e-commerce?
@@ -36,6 +37,7 @@ This project focuses on **predicting and segmenting churned users** in an e-comm
 
 ✔️ How can we segment churned users for targeted promotions?
 
+
 **👤 Who Is This Project For?**
 
 ✔️ Data Analysts & Business Analysts – To gain insights into churn behavior and retention strategies.
@@ -43,3 +45,15 @@ This project focuses on **predicting and segmenting churned users** in an e-comm
 ✔️ Marketing & Customer Retention Teams – To design data-driven promotional campaigns.
 
 ✔️ Decision-makers & Stakeholders – To reduce churn and improve customer lifetime value.
+
+
+<details>
+<summary>Click to see the objectives</summary>
+
+| **Objective**                                           | **Description**                                                     |
+|---------------------------------------------------------|---------------------------------------------------------------------|
+| **Identify churn behaviors and patterns**               | Explore customer data to find key behaviors linked to churn.        |
+| **Develop churn prediction model**                      | Build and fine-tune a model to predict customer churn.              |
+| **Segment churned users**                               | Use unsupervised learning to group churned users for targeted offers.|
+  
+</details>
