@@ -14,7 +14,7 @@
 
 🔎 Final Conclusion & Recommendations
 
-##📌 Background & Overview
+## 📌 Background & Overview
 
 **🎯 Objective**
 This project focuses on **predicting and segmenting churned users** in an e-commerce business to **develop effective retention strategies**. By leveraging **Machine Learning & Python**, this project aims to:
