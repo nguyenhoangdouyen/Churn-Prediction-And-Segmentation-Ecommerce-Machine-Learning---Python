@@ -217,6 +217,7 @@ Explored the distribution of continuous variables to better understand their uni
   
 - Continuous variables like `Tenure`, `SatisfactionScore`, `CashbackAmount`, and others were examined using boxplots. It was observed that the outliers in these columns. However, **outliers** reasonable and **should be kept** because they represent **distinguishing characteristics for predicting churn**.
 
+
 **📝 Final Data Inspection**
 
 [In 6]:
@@ -228,3 +229,23 @@ print(df.info())
 [Out 6]:
 
 ![Image](https://github.com/user-attachments/assets/616fb912-8efd-4d42-a3a6-df95e4550e6a)
+
+## 3️⃣ **Train & Apply Churn Prediction Model**
+
+**📝 Encoding**
+
+After preprocessing the dataset, encoding was applied to the categorical features:
+
+1. **One-Hot Encoding**:
+   - The columns with categorical features having a small number of unique values were encoded using **one-hot encoding**. This creates binary columns for each unique value, making it easier for the model to process categorical data.
+   - The columns encoded are:
+     - `PreferredLoginDevice`
+     - `PreferredPaymentMode`
+     - `PreferedOrderCat`
+     - `MaritalStatus`
+
+2. **Label Encoding**:
+   - The `Gender` column was encoded using **label encoding** to convert categorical labels into numerical values (0 or 1).
+   
+3. **Dropped Unnecessary Column**:
+   - The `CustomerID` column was dropped since it is a unique identifier and does not contribute to the prediction model.
