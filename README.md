@@ -298,7 +298,7 @@ x_train_scaled = scaler.fit_transform(x_train)
 x_test_scaled = scaler.transform(x_test)
 ```
 
-###📝 **Apply Model - Random Forest Classifier**
+### 📝 **Apply Model - Random Forest Classifier**
 
 - **Random Forest Classifier** was trained on the scaled features.
 - The model was evaluated using accuracy on both the **training** and **test** sets.
@@ -324,4 +324,21 @@ print(f'Test Accuracy: {test_acc:.4f}')
 print(f'Training Balanced Accuracy: {train_balanced_acc:.4f}')
 print(f'Test Balanced Accuracy: {test_balanced_acc:.4f}')
 ```
+### **💡Conclusion: ** 
+
+The evaluation of the model's performance on both the training and test sets is as follows:
+
+- **Training Accuracy:** 1.0000  
+  - The model achieves perfect accuracy on the training set. However, this could indicate overfitting, as the model has learned the training data very well.
+  
+- **Test Accuracy:** 0.9343  
+  - The model performs well on the test set, with a high accuracy of 93.43%. This suggests that the model generalizes well to unseen data, although there is a slight drop from the training accuracy, which is expected.
+
+- **Training Balanced Accuracy:** 1.0000  
+  - The training balanced accuracy is perfect (1.0000), indicating that the model is equally good at predicting both classes (Churn and Non-Churn) in the training set.
+
+- **Test Balanced Accuracy:** 0.8421  
+  - The balanced accuracy on the test set is 84.21%, which is still quite good. This metric takes into account both classes and gives a better sense of the model's performance in imbalanced datasets.
+
+-> The model performs well overall, with **high accuracy** and **balanced accuracy** on both the training and test sets. The **perfect training accuracy** indicates a **risk of overfitting**, but the **test accuracy** and **balanced accuracy** show that the model still **generalizes well to new data**. It is essential to **monitor the model on additional datasets** to confirm its **robustness in real-world scenarios**.
 
