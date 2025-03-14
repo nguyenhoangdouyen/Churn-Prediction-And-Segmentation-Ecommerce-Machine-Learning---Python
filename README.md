@@ -149,7 +149,7 @@ df.head(5)
 
 ![Image](https://github.com/user-attachments/assets/c79b4dee-2ffe-4deb-a9d5-9f2052465f45)
 
-#### **Data Understanding**
+#### **💡 Data Understanding**
 
 📌 Before performing any analysis or modeling, I carried out several steps to preprocess the data:
 
@@ -179,6 +179,6 @@ Aftering checkeing for duplicate rows in the dataset and found that there were n
 
 Explored the distribution of continuous variables to better understand their uniqueness and spread. Most of the continuous variables had a limited number of unique values, but this is reasonable given the context of the dataset.
 
-#### **💡 Summary**  
+#### **💡 Summary** 
 
 The dataset contained missing values in several columns, and some features had a limited number of unique values. The missing values were handled by replacing them with the mean, which prepared the data for further analysis and modeling.
