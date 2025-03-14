@@ -251,6 +251,7 @@ After preprocessing the dataset, encoding was applied to the categorical feature
    - The `CustomerID` column was dropped since it is a unique identifier and does not contribute to the prediction model.
 
 [In 7]:
+
 ```python
 # Apply one-hot encoding to categorical columns with a small number of unique values
 df_encoded = pd.get_dummies(df, columns=['PreferredLoginDevice', 'PreferredPaymentMode', 'PreferedOrderCat', 'MaritalStatus', 'PreferredLoginDevice'])
@@ -264,4 +265,5 @@ df_encoded = df_encoded.drop(columns=['CustomerID'])
 ```
 
 [Out 7]:
+
 ![Image](https://github.com/user-attachments/assets/9fade8d4-b571-41de-a8be-40dc78952773)
