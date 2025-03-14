@@ -179,6 +179,50 @@ Aftering checkeing for duplicate rows in the dataset and found that there were n
 
 Explored the distribution of continuous variables to better understand their uniqueness and spread. Most of the continuous variables had a limited number of unique values, but this is reasonable given the context of the dataset.
 
-#### **💡 Summary** 
+**📝 Univariate Analysis**  
+- Categorical variables like `PreferredLoginDevice`, `Gender`, `MaritalStatus`, and others were analyzed through count plots, which gave insights into the distribution of each category.
+  
+- Continuous variables like `Tenure`, `SatisfactionScore`, `CashbackAmount`, and others were examined using boxplots. It was observed that the outliers in these columns 
 
-The dataset contained missing values in several columns, and some features had a limited number of unique values. The missing values were handled by replacing them with the mean, which prepared the data for further analysis and modeling.
+### **💡 Summary** 
+
+- The dataset contained missing values in several columns. The missing values were **handled by replacing them with the mean**, which prepared the data for further analysis and modeling.
+- The dataset contains **outliers**, however, they are reasonable and **should be kept** because they represent **distinguishing characteristics for predicting churn**.
+- The dataset contains words with the **same meaning** but written differently. These should be **standardized into a single form**.
+
+**📝 Missing Value Handling**  
+
+[In 4]:
+
+```python
+# Define the list of columns with missing values
+cols_missing = ['Tenure', 'WarehouseToHome', 'HourSpendOnApp', 'OrderAmountHikeFromlastYear', 'CouponUsed', 'OrderCount', 'DaySinceLastOrder']
+
+# Replace missing columns with median
+for col in cols_missing:
+    # Fill missing values in each column with the median of that column
+    df[col].fillna(value= df[col].median(), inplace=True)
+```
+
+**📝 Merging Columns with Similar Data but Different Names**  
+
+[In 5]:
+
+```python
+# Merge columns with the same data but different names
+df['PreferredPaymentMode'] = df['PreferredPaymentMode'].replace({
+    'COD': 'Cash on Delivery',  # Replace 'COD' with 'Cash on Delivery'
+    'CC': 'Credit Card'  # Replace 'CC' with 'Credit Card'
+})
+```
+
+**📝 Final Data Inspection**
+
+[In 6]:
+```python
+# Print dataset info to verify missing values and column types
+print(df.info())
+```
+
+[Out 6]:
+![Image](https://github.com/user-attachments/assets/616fb912-8efd-4d42-a3a6-df95e4550e6a)
