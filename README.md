@@ -95,13 +95,45 @@ The dataset contains only **1 table** with customer and transaction-related data
 
 ## **⚒️ Main Process
 
-1️⃣ **Exploratory Data Analysis (EDA)**  
+### 1️⃣ **Data Preprocessing**  
 
-2️⃣ **Train & Apply Churn Prediction Model**  
+[In 1]: 📌 Import Necessary Libraries
 
-3️⃣ **Key Findings and Recommendations for Retention**  
+```python
+# Import necessary libraries
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.preprocessing import LabelEncoder, StandardScaler, RobustScaler
+from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
+from sklearn.model_selection import train_test_split, GridSearchCV, RandomizedSearchCV
+from sklearn.metrics import (
+    accuracy_score, balanced_accuracy_score, recall_score, 
+    precision_score, f1_score, confusion_matrix, silhouette_score
+)
+from sklearn.linear_model import LogisticRegression
+from sklearn.neighbors import KNeighborsClassifier
+import xgboost as xgb
+from sklearn.decomposition import PCA
+import scipy.cluster.hierarchy as sch
+from sklearn.cluster import AgglomerativeClustering
+```
 
-4️⃣ **Customer Segmentation By Clustering**  
+[In 2]: 📂 Mount Google Drive to Access Files
 
-5️⃣ **Insights & Recommendations**
+```python
+# Mount Google Drive to access files
+from google.colab import drive
+drive.mount('/content/drive')
+
+# Define the path to the project folder
+path = '/content/drive/MyDrive/ML_Final Project_Nguyen Hoang Do Uyen/'
+
+# Load the data
+df = pd.read_excel(path + 'churn_prediction.xlsx')
+```
+
+### 2️⃣ **Exploratory Data Analysis (EDA)**
+
 
