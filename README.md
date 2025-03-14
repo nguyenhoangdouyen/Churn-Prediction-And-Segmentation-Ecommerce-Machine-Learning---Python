@@ -95,7 +95,7 @@ The dataset contains only **1 table** with customer and transaction-related data
 
 ## **⚒️ Main Process
 
-### 1️⃣ **Data Preprocessing**  
+## 1️⃣ **Data Preprocessing**  
 
 📌 Import Necessary Libraries
 
@@ -175,19 +175,9 @@ Missing values were detected in multiple columns. The columns with missing value
 
 Aftering checkeing for duplicate rows in the dataset and found that there were no duplicate entries.
 
-**📝 Explored Continuous Variables**  
-
-Explored the distribution of continuous variables to better understand their uniqueness and spread. Most of the continuous variables had a limited number of unique values, but this is reasonable given the context of the dataset.
-
-**📝 Univariate Analysis**  
-- Categorical variables like `PreferredLoginDevice`, `Gender`, `MaritalStatus`, and others were analyzed through count plots, which gave insights into the distribution of each category.
-  
-- Continuous variables like `Tenure`, `SatisfactionScore`, `CashbackAmount`, and others were examined using boxplots. It was observed that the outliers in these columns 
-
 ### **💡 Summary** 
 
 - The dataset contained missing values in several columns. The missing values were **handled by replacing them with the mean**, which prepared the data for further analysis and modeling.
-- The dataset contains **outliers**, however, they are reasonable and **should be kept** because they represent **distinguishing characteristics for predicting churn**.
 - The dataset contains words with the **same meaning** but written differently. These should be **standardized into a single form**.
 
 **📝 Missing Value Handling**  
@@ -215,6 +205,17 @@ df['PreferredPaymentMode'] = df['PreferredPaymentMode'].replace({
     'CC': 'Credit Card'  # Replace 'CC' with 'Credit Card'
 })
 ```
+
+## 2️⃣ **Exploratory Data Analysis (EDA)**
+
+**📝 Explored Continuous Variables**  
+
+Explored the distribution of continuous variables to better understand their uniqueness and spread. Most of the continuous variables had a limited number of unique values, but this is reasonable given the context of the dataset.
+
+**📝 Univariate Analysis**  
+- Categorical variables like `PreferredLoginDevice`, `Gender`, `MaritalStatus`, and others were analyzed through count plots, which gave insights into the distribution of each category.
+  
+- Continuous variables like `Tenure`, `SatisfactionScore`, `CashbackAmount`, and others were examined using boxplots. It was observed that the outliers in these columns. However, **outliers** reasonable and **should be kept** because they represent **distinguishing characteristics for predicting churn**.
 
 **📝 Final Data Inspection**
 
