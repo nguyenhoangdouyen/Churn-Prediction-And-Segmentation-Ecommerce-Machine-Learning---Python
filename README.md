@@ -267,3 +267,61 @@ df_encoded = df_encoded.drop(columns=['CustomerID'])
 [Out 7]:
 
 ![Image](https://github.com/user-attachments/assets/9fade8d4-b571-41de-a8be-40dc78952773)
+
+### **📝 Split Data into Features (X) and Target (y)**
+
+[In 8]:
+
+- The dataset was split into **features (X)** and **target (y)**, where:
+  - **X** contains all the independent variables (features), and
+  - **y** contains the target variable `Churn`.
+
+```python
+# Split the data into features (X) and target (y)
+x = df_encoded.drop('Churn', axis=1)
+y = df_encoded['Churn']  # Target
+
+# Split into training and testing sets (70/30 split)
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=42)
+```
+
+[In 9]:
+
+###📝 **Standardize the Features Using StandardScaler**
+- The features were standardized using **StandardScaler** to ensure that all features have a mean of 0 and a standard deviation of 1. This step is important because many machine learning algorithms perform better when the features are on the same scale.
+- The **training set** was fitted and transformed, while the **test set** was only transformed (to avoid data leakage).
+
+```python
+# Standardize the features using StandardScaler
+scaler = StandardScaler()
+x_train_scaled = scaler.fit_transform(x_train)
+x_test_scaled = scaler.transform(x_test)
+```
+
+###📝 **Apply Model - Random Forest Classifier**
+
+- **Random Forest Classifier** was trained on the scaled features.
+- The model was evaluated using accuracy on both the **training** and **test** sets.
+
+```python
+# Train a Random Forest model
+clf = RandomForestClassifier(n_estimators=100, random_state=42)
+clf.fit(x_train_scaled, y_train)
+
+# Make predictions on training and test sets
+y_pred_train = clf.predict(x_train_scaled)
+y_pred_test = clf.predict(x_test_scaled)
+
+# Evaluate model accuracy
+train_acc = accuracy_score(y_train, y_pred_train)
+test_acc = accuracy_score(y_test, y_pred_test)
+train_balanced_acc = balanced_accuracy_score(y_train, y_pred_train)
+test_balanced_acc = balanced_accuracy_score(y_test, y_pred_test)
+
+# Print the results
+print(f'Training Accuracy: {train_acc:.4f}')
+print(f'Test Accuracy: {test_acc:.4f}')
+print(f'Training Balanced Accuracy: {train_balanced_acc:.4f}')
+print(f'Test Balanced Accuracy: {test_balanced_acc:.4f}')
+```
+
