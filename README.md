@@ -136,4 +136,10 @@ df = pd.read_excel(path + 'churn_prediction.xlsx')
 
 ### 2️⃣ **Exploratory Data Analysis (EDA)**
 
+[In 3]: Before diving into analysis, let's take a quick look at the first few rows of the dataset to examine its structure and key features
 
+```python
+df.head(5)
+```
+
+[Out 3]:
