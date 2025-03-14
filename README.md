@@ -232,7 +232,7 @@ print(df.info())
 
 ## 3️⃣ **Train & Apply Churn Prediction Model**
 
-**📝 Encoding**
+### **📝 Encoding**
 
 After preprocessing the dataset, encoding was applied to the categorical features:
 
@@ -249,3 +249,19 @@ After preprocessing the dataset, encoding was applied to the categorical feature
    
 3. **Dropped Unnecessary Column**:
    - The `CustomerID` column was dropped since it is a unique identifier and does not contribute to the prediction model.
+
+[In 7]:
+```python
+# Apply one-hot encoding to categorical columns with a small number of unique values
+df_encoded = pd.get_dummies(df, columns=['PreferredLoginDevice', 'PreferredPaymentMode', 'PreferedOrderCat', 'MaritalStatus', 'PreferredLoginDevice'])
+
+# Apply label encoding to the 'Gender' column (converts categorical labels to numerical values)
+label_encoder = LabelEncoder()
+df_encoded['Gender'] = label_encoder.fit_transform(df_encoded['Gender'])
+
+# Drop the 'CustomerID'
+df_encoded = df_encoded.drop(columns=['CustomerID'])
+```
+
+[Out 7]:
+![Image](https://github.com/user-attachments/assets/9fade8d4-b571-41de-a8be-40dc78952773)
