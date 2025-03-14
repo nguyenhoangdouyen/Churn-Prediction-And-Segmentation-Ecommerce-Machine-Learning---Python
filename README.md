@@ -97,7 +97,9 @@ The dataset contains only **1 table** with customer and transaction-related data
 
 ### 1️⃣ **Data Preprocessing**  
 
-[In 1]: 📌 Import Necessary Libraries
+📌 Import Necessary Libraries
+
+[In 1]: 
 
 ```python
 # Import necessary libraries
@@ -119,8 +121,9 @@ from sklearn.decomposition import PCA
 import scipy.cluster.hierarchy as sch
 from sklearn.cluster import AgglomerativeClustering
 ```
+📂 Mount Google Drive to Access Files
 
-[In 2]: 📂 Mount Google Drive to Access Files
+[In 2]: 
 
 ```python
 # Mount Google Drive to access files
@@ -134,12 +137,42 @@ path = '/content/drive/MyDrive/ML_Final Project_Nguyen Hoang Do Uyen/'
 df = pd.read_excel(path + 'churn_prediction.xlsx')
 ```
 
-### 2️⃣ **Exploratory Data Analysis (EDA)**
+📂 Before diving into analysis, let's take a quick look at the first few rows of the dataset to examine its structure and key features
 
-[In 3]: Before diving into analysis, let's take a quick look at the first few rows of the dataset to examine its structure and key features
+[In 3]:
 
 ```python
 df.head(5)
 ```
 
 [Out 3]:
+
+![Image](https://github.com/user-attachments/assets/c79b4dee-2ffe-4deb-a9d5-9f2052465f45)
+
+📌 Before performing any analysis or modeling, I carried out several steps to preprocess the data:
+
+**📝 Checked Dataset Structure**  
+After checking the general structure of the dataset, this gave me an overview of the number of rows, columns, and data types for each feature, along with summary statistics.
+
+  - The dataset contains 5,630 rows and 20 columns, with a mix of numeric and categorical variables.
+  - Missing values were identified in several columns, such as `Tenure`, `WarehouseToHome`, `HourSpendOnApp`, etc.
+
+** 📝 Checked for Missing Values**  
+Missing values were detected in multiple columns. The columns with missing values are:
+
+   - `Tenure` - 264 missing values
+   - `WarehouseToHome` - 251 missing values
+   - `HourSpendOnApp` - 255 missing values
+   - `OrderAmountHikeFromlastYear` - 265 missing values
+   - `CouponUsed` - 256 missing values
+   - `OrderCount` - 258 missing values
+   - `DaySinceLastOrder` - 307 missing values
+
+**📝 Checked for Duplicates**  
+Aftering checkeing for duplicate rows in the dataset and found that there were no duplicate entries.
+
+**📝 Explored Continuous Variables**  
+Explored the distribution of continuous variables to better understand their uniqueness and spread. Most of the continuous variables had a limited number of unique values, but this is reasonable given the context of the dataset.
+
+####**💡 Summary**  
+The dataset contained missing values in several columns, and some features had a limited number of unique values. The missing values were handled by replacing them with the mean, which prepared the data for further analysis and modeling.
