@@ -225,4 +225,5 @@ print(df.info())
 ```
 
 [Out 6]:
+
 ![Image](https://github.com/user-attachments/assets/616fb912-8efd-4d42-a3a6-df95e4550e6a)
