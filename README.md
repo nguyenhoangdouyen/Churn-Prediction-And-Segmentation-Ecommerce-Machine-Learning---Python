@@ -149,15 +149,18 @@ df.head(5)
 
 ![Image](https://github.com/user-attachments/assets/c79b4dee-2ffe-4deb-a9d5-9f2052465f45)
 
+#### **Data Understanding**
+
 📌 Before performing any analysis or modeling, I carried out several steps to preprocess the data:
 
 **📝 Checked Dataset Structure**  
+
 After checking the general structure of the dataset, this gave me an overview of the number of rows, columns, and data types for each feature, along with summary statistics.
 
   - The dataset contains 5,630 rows and 20 columns, with a mix of numeric and categorical variables.
   - Missing values were identified in several columns, such as `Tenure`, `WarehouseToHome`, `HourSpendOnApp`, etc.
 
-** 📝 Checked for Missing Values**  
+**📝 Checked for Missing Values**  
 Missing values were detected in multiple columns. The columns with missing values are:
 
    - `Tenure` - 264 missing values
@@ -169,10 +172,13 @@ Missing values were detected in multiple columns. The columns with missing value
    - `DaySinceLastOrder` - 307 missing values
 
 **📝 Checked for Duplicates**  
+
 Aftering checkeing for duplicate rows in the dataset and found that there were no duplicate entries.
 
 **📝 Explored Continuous Variables**  
+
 Explored the distribution of continuous variables to better understand their uniqueness and spread. Most of the continuous variables had a limited number of unique values, but this is reasonable given the context of the dataset.
 
-####**💡 Summary**  
+#### **💡 Summary**  
+
 The dataset contained missing values in several columns, and some features had a limited number of unique values. The missing values were handled by replacing them with the mean, which prepared the data for further analysis and modeling.
