@@ -435,7 +435,9 @@ x_test1_scaled = scaler.transform(x_test1)
 
 **3. Apply Model & Fine tune**
 
-[In 11]: Apply XGBoost
+[In 11]: 
+
+Apply XGBoost
 
 ```python
 # Initialize the XGBoost model
@@ -452,7 +454,9 @@ recall_XGB = recall_score(y_val1, y_pred_val_xgb)
 
 ```
 
-[In 12]: Fine-tune XGBoost Model 
+[In 12]: 
+
+Fine-tune XGBoost Model 
 
 ```python
 # Set param
@@ -482,3 +486,43 @@ print("Best recall score:", rf_finetune.best_score_)
 [Out 12]:  
 
 ![Image](https://github.com/user-attachments/assets/0c0ace85-a202-494b-a039-266ff6fdd82b)
+
+##6️⃣ **Customer Segmentation Using Clustering**  
+
+### 📝 **PCA**
+
+[In 13]
+
+```python
+# One-hot encoding
+df_churned_encoded = pd.get_dummies(df_churned,
+                                    columns=['PreferredLoginDevice', 'PreferredPaymentMode', 'PreferedOrderCat', 'MaritalStatus'])
+# Label encoding
+le = LabelEncoder()
+df_churned_encoded.loc[:, 'Gender'] = le.fit_transform(df_churned_encoded['Gender'])
+
+# Normalize data
+scaler = RobustScaler()
+df_churned_final = scaler.fit_transform(df_churned_encoded)
+
+# Initialize PCA with 90% variance retention
+pca = PCA(n_components=0.90)
+
+# Apply PCA transformation to the dataset
+pca_final = pca.fit_transform(df_churned_final)
+
+# Convert PCA into dataframe
+pca_df = pd.DataFrame(pca_final, columns=[f"col{i+1}" for i in range(pca_final.shape[1])])
+
+# Print the number of principal components retained
+print(f'Number of principal components retained: {pca_final.shape[1]}')
+
+# Print the explained variance ratio for each principal component
+pca.explained_variance_ratio_
+
+# Print the explained variance ratio for each principal component
+pca.explained_variance_ratio_
+```
+
+[Out 13]:
+![Image](https://github.com/user-attachments/assets/c01e6ec8-21cb-4961-be60-c4deeee62f82)
