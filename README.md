@@ -373,12 +373,14 @@ Then, we will plot a histogram chart to visualize the differences between churn 
 
 ### 📝 **Plot Histogram**
 
-![image](https://github.com/user-attachments/assets/f848a0b5-7718-4998-a6ce-0d6247172c73)
+![Image](https://github.com/user-attachments/assets/2179d426-4175-407c-bc82-a8972f3a1de0)
 
-![image](https://github.com/user-attachments/assets/9ff8b4ac-6ef7-408c-998b-e5ba14260f9c)
+##4️⃣ **Key Findings and Recommendations for Retention**  
 
-![image](https://github.com/user-attachments/assets/57acb9f9-e884-4356-a35e-cc981c5601b5)
-
-![image](https://github.com/user-attachments/assets/b20a999f-747e-4a8c-865d-838a87f42ffd)
-
-![image](https://github.com/user-attachments/assets/766d2fb9-3e90-446f-8375-05060b2f8455)
+| Metric                     | Churn (Blue) | Non-Churn (Yellow) | Insight |
+|----------------------------|-------------|---------------------|---------|
+| **Tenure (Customer Lifespan)** | 80% leave within 5 months, very few stay beyond 10 months | More evenly distributed, many customers stay over 20 months | **Churned customers tend to leave very early**, meaning the initial experience is crucial. Without an effective retention strategy, they will churn quickly. |
+| **CashbackAmount (Cashback Received)** | Average around 100-200, widely distributed | Mostly concentrated between 120-250 | **Churned customers receive less cashback**, which may lead to a lower perceived financial benefit. Increasing cashback or introducing alternative incentives might help retention. |
+| **WarehouseToHome (Delivery Time)** | Wide distribution, average around 15-30 days, some exceeding 35 days | Mostly under 20 days, rarely exceeding 25 days | **Longer delivery times correlate with higher churn rates**. Optimizing logistics and reducing shipping time could enhance customer retention. |
+| **Complain (Customer Complaints)** | Two extremes: either 0 or 1, with ~50%-50% lodging complaints | Similar pattern, but most customers do not complain, complains only accoounts for 10-15% | **Churned customers have a higher complaint rate**, but many also leave without complaining. This suggests that some dissatisfied customers simply churn without providing feedback, requiring a more proactive approach. |
+| **DaySinceLastOrder (Days Since Last Order)** | Widely spread, most over 10 days, with many exceeding 20 days | Mostly under 10 days, rarely over 15 days | **Churned customers order less frequently**, meaning if they don’t make a purchase soon, they are likely to leave. A strategy to encourage repeat purchases, such as discounts for quick reorders, could be beneficial. |
