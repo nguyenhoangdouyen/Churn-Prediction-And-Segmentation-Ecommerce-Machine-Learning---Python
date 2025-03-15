@@ -620,7 +620,7 @@ plt.show()
 ![image](https://github.com/user-attachments/assets/5261d06a-9fc9-4b92-9f3d-0ab91deef307)
 
 
-## 7️⃣ **Recommendation for Clustering
+## 7️⃣ **Recommendation for Clustering**
 
 - **Gather more data on churned users**:  
   - To improve the model, we can **collect additional data** on churned users, either by gathering real data from the business or by using our **supervised model to predict churn**. The predicted churn data can serve as ground truth for refining the clustering model.
