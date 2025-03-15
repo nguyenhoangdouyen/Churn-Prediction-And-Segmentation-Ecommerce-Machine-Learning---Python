@@ -377,6 +377,8 @@ Then, we will plot a histogram chart to visualize the differences between churn 
 
 ## 4️⃣ **Key Findings and Recommendations for Retention**  
 
+### **💡Findings:**
+
 | Metric                     | Churn (Blue) | Non-Churn (Yellow) | Insight |
 |----------------------------|-------------|---------------------|---------|
 | **Tenure (Customer Lifespan)** | 80% leave within 5 months, very few stay beyond 10 months | More evenly distributed, many customers stay over 20 months | **Churned customers tend to leave very early**, meaning the initial experience is crucial. Without an effective retention strategy, they will churn quickly. |
@@ -391,4 +393,48 @@ Then, we will plot a histogram chart to visualize the differences between churn 
 4. **Many customers churn without lodging complaints** → Proactively gather feedback before they decide to leave.  
 5. **Low order frequency is an early churn indicator** → Implement strategies like time-sensitive discounts to encourage repeat purchases sooner.
 
-   
+### **💡Recommendation:**
+# **1.5 Recommendation**  
+
+**🌟 Improve Initial Customer Experience**  
+**🔹 Problem:** 80% of churned customers leave within 5 months.  
+**✅ Solution:**  
+- Launch a **welcome program** (onboarding emails, tutorials, live chat).  
+- Offer **first-time discounts** or membership perks.  
+- Provide **personalized recommendations** to boost engagement.  
+
+---  
+
+**💰 Optimize Cashback & Loyalty Rewards**  
+**🔹 Problem:** Churned customers receive less cashback, reducing perceived value.  
+**✅ Solution:**  
+- Implement **tiered cashback programs** (higher spend = higher cashback).  
+- Offer **time-sensitive bonuses** to encourage repeat purchases.  
+- Provide **alternative rewards** like free shipping or exclusive discounts.  
+
+---  
+
+**🚀 Improve Delivery Speed & Logistics**  
+**🔹 Problem:** Longer delivery times increase churn rates.  
+**✅ Solution:**  
+- **Optimize warehouse locations** for faster fulfillment.  
+- Partner with **multiple shipping carriers** for speed.  
+- Provide **real-time tracking** and estimated delivery updates.  
+
+---  
+
+**💬 Address Customer Complaints Proactively**  
+**🔹 Problem:** Dissatisfied customers either complain frequently or silently leave.  
+**✅ Solution:**  
+- Use an **AI chatbot** or dedicated support team to resolve issues early.  
+- Offer **compensation (discounts, free items, faster delivery)** before they churn.  
+- Apply **sentiment analysis** to predict dissatisfaction and act.  
+
+---  
+
+**🔄 Encourage Frequent Purchases**  
+**🔹 Problem:** Longer gaps between orders increase churn risk.  
+**✅ Solution:**  
+- Launch **time-sensitive discounts** (e.g., "10% off if you reorder in 7 days").  
+- Use **personalized email reminders** with incentives.  
+- Introduce a **subscription model** for repeat purchases
