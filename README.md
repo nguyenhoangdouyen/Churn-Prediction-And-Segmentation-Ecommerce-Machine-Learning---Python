@@ -386,9 +386,99 @@ Then, we will plot a histogram chart to visualize the differences between churn 
 | **Complain (Customer Complaints)** | 50% complain, 50% leave without feedback | Most don’t complain, only 10-15% do | **Churned customers complain more or leave silently.** | Use AI chatbots, proactive outreach, and offer compensations. |
 | **DaySinceLastOrder (Days Since Last Order)** | Mostly over 10 days, many exceed 20 | Mostly under 10 days, rarely over 15 | **Churned customers order less frequently.** | Launch re-engagement discounts, personalized reminders, and subscription models. |
 
+5️⃣ **Create A Model For Predicting Churn** 
 
-1. **The initial experience is a critical factor** → If customers are dissatisfied early on, they are likely to churn.  
-2. **Lower cashback may reduce retention rates** → Consider adjusting cashback incentives or introducing alternative rewards.  
-3. **Longer delivery times increase churn risk** → Optimize shipping logistics to shorten delivery times.  
-4. **Many customers churn without lodging complaints** → Proactively gather feedback before they decide to leave.  
-5. **Low order frequency is an early churn indicator** → Implement strategies like time-sensitive discounts to encourage repeat purchases sooner.
+ The model will be trained using the top 5 features impacting churn behavior: Tenure, CashbackAmount, WarehouseToHome, Complain, and DaySinceLastOrder.
+ 
+ [In 10]:
+
+```python
+# Select top features affecting Churn
+top_features = ['Tenure', 'CashbackAmount', 'WarehouseToHome', 'Complain', 'DaySinceLastOrder']
+x_1 = df[top_features]
+y_1 = df['Churn']
+
+# Split: 70% train, 30% temp (val + test)
+x_train1, x_val1, y_train1, y_val1 = train_test_split(x_1, y_1, test_size=0.3, random_state=42)
+
+# Split temp into 15% val, 15% test
+x_val1, x_test1, y_val1, y_test1 = train_test_split(x_val1, y_val1, test_size=0.5, random_state=42)
+
+#Normalize data
+from sklearn.preprocessing import StandardScaler
+scaler_1 = StandardScaler()
+x_train1_scaled = scaler.fit_transform(x_train1)
+x_val1_scaled = scaler.transform(x_val1)
+x_test1_scaled = scaler.transform(x_test1)
+
+```
+
+### 📝 **Choose Model**
+
+**1. Choose metric for evaluating**
+
+- The primary goal is to **accurately identify customers likely to churn** and implement retention strategies.  
+- If the model **misses too many churned customers** (high **False Negatives - FN**), the business will lose customers that could have been retained.  
+- **Losing customers (FN) causes more damage** than mistakenly targeting non-churned customers (FP) for retention efforts → **Recall is prioritized.**
+
+**2. Model Comparison & Selection**  
+
+| Model                  | Recall Score |
+|------------------------|--------------|
+| **Random Forest**      | **0.6980**    |
+| Logistic Regression   | 0.3289       |
+| KNN                   | 0.4698       |
+| Gradient Boosting     | 0.5168       |
+
+- After testing five models, **Random Forest achieved the highest Recall score**.  
+- → **Select Random Forest and proceed with fine-tuning** to improve performance.  
+
+**3. Apply Model & Fine tune**
+
+[In 11]: Apply XGBoost
+
+```python
+# Initialize the XGBoost model
+xgb_model = xgb.XGBClassifier()
+
+# Train the model with the scaled training data
+xgb_model.fit(x_train1_scaled, y_train1)
+
+# Make predictions on the validation set
+y_pred_val_xgb = xgb_model.predict(x_val1_scaled)
+
+# Evaluate the model using the recall score
+recall_XGB = recall_score(y_val1, y_pred_val_xgb)
+
+```
+
+[In 12]: Fine-tune XGBoost Model 
+
+```python
+# Set param
+param_xgb = {
+    'n_estimators': [50, 100, 200, 300, 500],
+    'max_depth': [3, 5, 7, 10],
+    'learning_rate': [0.01, 0.05, 0.1, 0.2],
+    'subsample': [0.6, 0.8, 1.0],
+    'colsample_bytree': [0.6, 0.8, 1.0],
+    'gamma': [0, 0.1, 0.2, 0.3],
+    'min_child_weight': [1, 3, 5]
+}
+
+# Perform a randomized search over the specified parameter grid
+rf_finetune = RandomizedSearchCV(estimator=xgb_model, param_distributions=param_xgb, n_iter=20, cv=5, scoring='recall', random_state=42)
+
+# Fit the randomized search model on the training data
+rf_finetune.fit(x_train1_scaled, y_train1)
+
+# Print the best hyperparameters found by the search
+print("Best parameters found:", rf_finetune.best_params_)
+
+# Print the best recall score obtained during cross-validation
+print("Best recall score:", rf_finetune.best_score_)
+```
+
+[Out 12]:  
+
+![Image](https://github.com/user-attachments/assets/0c0ace85-a202-494b-a039-266ff6fdd82b)
