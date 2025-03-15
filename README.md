@@ -378,54 +378,17 @@ Then, we will plot a histogram chart to visualize the differences between churn 
 ## 4️⃣ **Key Findings and Recommendations for Retention**  
 
 ### **💡Findings:**
+| Metric                     | Churn (Blue) | Non-Churn (Yellow) | Insight | Recommendation |
+|----------------------------|-------------|---------------------|---------|----------------|
+| **Tenure (Customer Lifespan)** | 80% leave within 5 months, very few stay beyond 10 months | More evenly distributed, many stay over 20 months | **Churned customers leave early**, making the initial experience crucial. | Strengthen onboarding with welcome programs & early engagement incentives. |
+| **CashbackAmount (Cashback Received)** | Average around 100-200, widely distributed | Mostly concentrated between 120-250 | **Churned customers receive less cashback**, lowering perceived value. | Introduce tiered cashback, bonuses, or alternative rewards. |
+| **WarehouseToHome (Delivery Time)** | Wide distribution, avg. 15-30 days, some over 35 days | Mostly under 20 days, rarely over 25 days | **Longer delivery times increase churn.** | Optimize logistics, reduce shipping time, and offer real-time tracking. |
+| **Complain (Customer Complaints)** | 50% complain, 50% leave without feedback | Most don’t complain, only 10-15% do | **Churned customers complain more or leave silently.** | Use AI chatbots, proactive outreach, and offer compensations. |
+| **DaySinceLastOrder (Days Since Last Order)** | Mostly over 10 days, many exceed 20 | Mostly under 10 days, rarely over 15 | **Churned customers order less frequently.** | Launch re-engagement discounts, personalized reminders, and subscription models. |
 
-| Metric                     | Churn (Blue) | Non-Churn (Yellow) | Insight |
-|----------------------------|-------------|---------------------|---------|
-| **Tenure (Customer Lifespan)** | 80% leave within 5 months, very few stay beyond 10 months | More evenly distributed, many customers stay over 20 months | **Churned customers tend to leave very early**, meaning the initial experience is crucial. Without an effective retention strategy, they will churn quickly. |
-| **CashbackAmount (Cashback Received)** | Average around 100-200, widely distributed | Mostly concentrated between 120-250 | **Churned customers receive less cashback**, which may lead to a lower perceived financial benefit. Increasing cashback or introducing alternative incentives might help retention. |
-| **WarehouseToHome (Delivery Time)** | Wide distribution, average around 15-30 days, some exceeding 35 days | Mostly under 20 days, rarely exceeding 25 days | **Longer delivery times correlate with higher churn rates**. Optimizing logistics and reducing shipping time could enhance customer retention. |
-| **Complain (Customer Complaints)** | Two extremes: either 0 or 1, with ~50%-50% lodging complaints | Similar pattern, but most customers do not complain, complains only accoounts for 10-15% | **Churned customers have a higher complaint rate**, but many also leave without complaining. This suggests that some dissatisfied customers simply churn without providing feedback, requiring a more proactive approach. |
-| **DaySinceLastOrder (Days Since Last Order)** | Widely spread, most over 10 days, with many exceeding 20 days | Mostly under 10 days, rarely over 15 days | **Churned customers order less frequently**, meaning if they don’t make a purchase soon, they are likely to leave. A strategy to encourage repeat purchases, such as discounts for quick reorders, could be beneficial. |
 
 1. **The initial experience is a critical factor** → If customers are dissatisfied early on, they are likely to churn.  
 2. **Lower cashback may reduce retention rates** → Consider adjusting cashback incentives or introducing alternative rewards.  
 3. **Longer delivery times increase churn risk** → Optimize shipping logistics to shorten delivery times.  
 4. **Many customers churn without lodging complaints** → Proactively gather feedback before they decide to leave.  
 5. **Low order frequency is an early churn indicator** → Implement strategies like time-sensitive discounts to encourage repeat purchases sooner.
-
-### **💡Recommendation:**
-
-#### **Improve Initial Customer Experience**  
-**Problem:** 80% of churned customers leave within 5 months.  
-**Solution:**  
-- Launch a **welcome program** (onboarding emails, tutorials, live chat).  
-- Offer **first-time discounts** or membership perks.  
-- Provide **personalized recommendations** to boost engagement.  
-
-#### **Optimize Cashback & Loyalty Rewards**  
-**Problem:** Churned customers receive less cashback, reducing perceived value.  
-**Solution:**  
-- Implement **tiered cashback** (higher spend = higher rewards).  
-- Offer **time-sensitive bonuses** to drive repeat purchases.  
-- Provide **alternative rewards** like free shipping or exclusive discounts.  
-
-#### **Improve Delivery Speed & Logistics**  
-**Problem:** Longer delivery times increase churn.  
-**Solution:**  
-- **Optimize warehouse locations** for faster fulfillment.  
-- Partner with **multiple carriers** for quicker delivery.  
-- Provide **real-time tracking** and delivery estimates.  
-
-#### **Address Customer Complaints Proactively**  
-**Problem:** Dissatisfied customers either complain frequently or leave silently.  
-**Solution:**  
-- Use an **AI chatbot** or support team for quick issue resolution.  
-- Offer **compensation (discounts, free items, faster delivery)** before churn.  
-- Apply **sentiment analysis** to predict and prevent dissatisfaction.  
-
-#### **Encourage Frequent Purchases**  
-**Problem:** Longer gaps between orders increase churn risk.  
-**Solution:**  
-- Launch **time-sensitive discounts** (e.g., "10% off if you reorder in 7 days").  
-- Use **personalized email reminders** with incentives.  
-- Introduce a **subscription model** for repeat purchases.  
