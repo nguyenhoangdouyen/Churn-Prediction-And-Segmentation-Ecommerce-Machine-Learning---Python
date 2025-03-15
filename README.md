@@ -342,3 +342,35 @@ The evaluation of the model's performance on both the training and test sets is 
 
 -> The model performs well overall, with **high accuracy** and **balanced accuracy** on both the training and test sets. The **perfect training accuracy** indicates a **risk of overfitting**, but the **test accuracy** and **balanced accuracy** show that the model still **generalizes well to new data**. It is essential to **monitor the model on additional datasets** to confirm its **robustness in real-world scenarios**.
 
+### 📝 **Apply Random Forest To Find Important Features**
+
+[In 10]:
+
+```python
+# Get feature importances from the best model
+feats = {feature: importance for feature, importance in zip(x_train.columns, best_clf.feature_importances_)}
+
+# Create a DataFrame for feature importances
+importances = pd.DataFrame.from_dict(feats, orient='index').rename(columns={0: 'Importances'})
+importances = importances.sort_values(by='Importances', ascending=True).reset_index()
+
+# Plot the feature importances
+plt.figure(figsize=(10,10))
+plt.barh(importances.tail(20)['index'], importances.tail(20)['Importances'])  # Plot top 20 features
+plt.title('Feature Importance')
+plt.show()
+```
+
+[Out 10]:
+
+![image](https://github.com/user-attachments/assets/6216d1d9-fc0c-43b0-a40b-f3647378a36d)
+
+### **💡Conclusion: ** 
+
+Base on the image, we can conclude that top 5 important features hwich directly affecting to churn behaviors are: Tenture, CashbackAmount, WarehouseTohome, Complain, DaySinceLastOrder.
+These features play a crucial role in predicting whether a customer is likely to churn. Tenure and Days Since Last Order indicate customer engagement, while Cashback Amount and Complaints reflect satisfaction levels. Warehouse to Home Distance may influence delivery experience, impacting customer retention. 
+Then, we will plot a histogram chart to visualize the differences between churn and non-churn behavior for the top important features. This will help us identify patterns and understand how these features contribute to customer churn. 
+
+### 📝 **Plot Histogram**
+
+![image](https://github.com/user-attachments/assets/f848a0b5-7718-4998-a6ce-0d6247172c73)
