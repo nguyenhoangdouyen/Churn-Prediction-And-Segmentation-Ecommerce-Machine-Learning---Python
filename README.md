@@ -374,3 +374,11 @@ Then, we will plot a histogram chart to visualize the differences between churn 
 ### 📝 **Plot Histogram**
 
 ![image](https://github.com/user-attachments/assets/f848a0b5-7718-4998-a6ce-0d6247172c73)
+
+![image](https://github.com/user-attachments/assets/9ff8b4ac-6ef7-408c-998b-e5ba14260f9c)
+
+![image](https://github.com/user-attachments/assets/57acb9f9-e884-4356-a35e-cc981c5601b5)
+
+![image](https://github.com/user-attachments/assets/b20a999f-747e-4a8c-865d-838a87f42ffd)
+
+![image](https://github.com/user-attachments/assets/766d2fb9-3e90-446f-8375-05060b2f8455)
