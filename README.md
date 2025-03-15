@@ -375,7 +375,7 @@ Then, we will plot a histogram chart to visualize the differences between churn 
 
 ![Image](https://github.com/user-attachments/assets/2179d426-4175-407c-bc82-a8972f3a1de0)
 
-##4️⃣ **Key Findings and Recommendations for Retention**  
+## 4️⃣ **Key Findings and Recommendations for Retention**  
 
 | Metric                     | Churn (Blue) | Non-Churn (Yellow) | Insight |
 |----------------------------|-------------|---------------------|---------|
@@ -384,3 +384,11 @@ Then, we will plot a histogram chart to visualize the differences between churn 
 | **WarehouseToHome (Delivery Time)** | Wide distribution, average around 15-30 days, some exceeding 35 days | Mostly under 20 days, rarely exceeding 25 days | **Longer delivery times correlate with higher churn rates**. Optimizing logistics and reducing shipping time could enhance customer retention. |
 | **Complain (Customer Complaints)** | Two extremes: either 0 or 1, with ~50%-50% lodging complaints | Similar pattern, but most customers do not complain, complains only accoounts for 10-15% | **Churned customers have a higher complaint rate**, but many also leave without complaining. This suggests that some dissatisfied customers simply churn without providing feedback, requiring a more proactive approach. |
 | **DaySinceLastOrder (Days Since Last Order)** | Widely spread, most over 10 days, with many exceeding 20 days | Mostly under 10 days, rarely over 15 days | **Churned customers order less frequently**, meaning if they don’t make a purchase soon, they are likely to leave. A strategy to encourage repeat purchases, such as discounts for quick reorders, could be beneficial. |
+
+1. **The initial experience is a critical factor** → If customers are dissatisfied early on, they are likely to churn.  
+2. **Lower cashback may reduce retention rates** → Consider adjusting cashback incentives or introducing alternative rewards.  
+3. **Longer delivery times increase churn risk** → Optimize shipping logistics to shorten delivery times.  
+4. **Many customers churn without lodging complaints** → Proactively gather feedback before they decide to leave.  
+5. **Low order frequency is an early churn indicator** → Implement strategies like time-sensitive discounts to encourage repeat purchases sooner.
+
+   
