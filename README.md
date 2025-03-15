@@ -487,7 +487,7 @@ print("Best recall score:", rf_finetune.best_score_)
 
 ![Image](https://github.com/user-attachments/assets/0c0ace85-a202-494b-a039-266ff6fdd82b)
 
-##6️⃣ **Customer Segmentation Using Clustering**  
+## 6️⃣ **Customer Segmentation Using Clustering**  
 
 ### 📝 **PCA**
 
@@ -525,4 +525,109 @@ pca.explained_variance_ratio_
 ```
 
 [Out 13]:
+
 ![Image](https://github.com/user-attachments/assets/c01e6ec8-21cb-4961-be60-c4deeee62f82)
+
+### 📝 **Apply Model & Clustering**
+
+**1. Choosing K**
+
+[In 14]:
+
+```python
+#Calculate KMeans
+from sklearn.cluster import KMeans
+ss = []
+for i in range(1,11):
+  kmeans = KMeans(n_clusters=i, n_init=10, random_state=42, init='k-means++')
+  kmeans.fit(pca_df)
+  ss.append(kmeans.inertia_)
+
+#Plot the Elbow
+plt.figure(figsize = (6,4))
+plt.plot(range(1,11), ss, marker=0, linestyle='--')
+plt.title('Elbow Methos')
+plt.xlabel('Number of clusters')
+plt.ylabel('WCSS')
+plt.show()
+```
+
+[Out 14]:
+
+![image](https://github.com/user-attachments/assets/a6d14cac-5b79-4e70-b601-ea44d7e024fe)
+
+-> We will choose **K=4**
+
+**2. Apply Model**
+
+```python
+# Initialize KMeans with 4 clusters
+kmeans = KMeans(n_clusters=4, n_init=10, init='k-means++')
+
+# Apply KMeans and get predicted labels
+predicted_labels = kmeans.fit_predict(pca_df)
+
+# Add cluster labels to dataframes
+pca_df['cluster'] = predicted_labels
+df_churned_encoded['cluster'] = predicted_labels
+df_churned['cluster'] = predicted_labels
+```
+
+**3. Evaluate Model**
+
+[In 15]:
+
+```python
+# Calculate and print silhouette score
+sil_score = silhouette_score(pca_df, predicted_labels)
+print(sil_score)
+```
+
+[Out 15]: 0.2281232336641304
+
+**4. Visulize Distribution & Clusters**
+
+![image](https://github.com/user-attachments/assets/aec05f64-9c48-4090-a4ea-55bb56bd7a0b)
+
+![image](https://github.com/user-attachments/assets/db3e5e49-9d2e-4fa4-a94a-e34b07b555d6)
+
+
+### **💡Conclusion: **
+- **PCA does not retain the significant meaning of the data** (the sum of the explained variance ratio is too low).
+- When applying the **Elbow method**, no clear elbow points are visible.
+- **Our hypothesis** is that the data is **sporadic**, meaning there are no clear patterns between the data points, and therefore, clustering into distinct groups is challenging.
+- **Silhouette score is also low**, indicating that the clusters are not well-separated.
+
+### **💡Suggestions:**
+- **Use clustering methods that do not require a fixed number of clusters**. We suggest trying a **Hierarchical Clustering model**, which can provide better-defined clusters without the need to predefine the number of clusters.
+
+**5. Apply Dendrogram**
+
+[In 16]:
+
+```python
+X_pca = pca_df.values
+
+# Draw dendrogram
+plt.figure(figsize=(8, 5))
+dendrogram = sch.dendrogram(sch.linkage(X_pca, method='ward'))
+plt.axhline(y=6, color='r', linestyle='--')
+plt.show()
+```
+
+[Out 16]:
+
+![image](https://github.com/user-attachments/assets/5261d06a-9fc9-4b92-9f3d-0ab91deef307)
+
+
+## 7️⃣ **Recommendation for Clustering
+
+- **Gather more data on churned users**:  
+  - To improve the model, we can **collect additional data** on churned users, either by gathering real data from the business or by using our **supervised model to predict churn**. The predicted churn data can serve as ground truth for refining the clustering model.
+  
+- **Run promotions for churned users**:  
+  - **Offer promotions** to all users identified as churned, and **track the results**. These insights can be used as **additional features** in future models, helping to enhance the accuracy and effectiveness of churn prediction over time.
+
+These steps would help **improve data quality** and **increase the predictive power** of the model by incorporating real-world results and feedback.
+
+
