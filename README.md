@@ -10,11 +10,12 @@
 
 ## 📑 Table of Contents
 
-📌 Background & Overview
-
-📂 Dataset Description & Data Structure
-
-🔎 Final Conclusion & Recommendations
+1. 🌱 [Data Preprocessing](#data-preprocessing)
+2. 🔍 [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
+3. 📊 [Train & Apply Churn Prediction Model](#train-apply-churn-prediction-model)
+4. 💡 [Key Findings and Recommendations for Retention](#key-findings-and-recommendations-for-retention)
+5. 🤖 [Create A Model For Predicting Churn](#create-a-model-for-predicting-churn)
+6. 🧑‍💻 [Customer Segmentation Using Clustering](#customer-segmentation-using-clustering)
 
 
 ## 📌 Background & Overview
@@ -386,7 +387,7 @@ Then, we will plot a histogram chart to visualize the differences between churn 
 | **Complain (Customer Complaints)** | 50% complain, 50% leave without feedback | Most don’t complain, only 10-15% do | **Churned customers complain more or leave silently.** | Use AI chatbots, proactive outreach, and offer compensations. |
 | **DaySinceLastOrder (Days Since Last Order)** | Mostly over 10 days, many exceed 20 | Mostly under 10 days, rarely over 15 | **Churned customers order less frequently.** | Launch re-engagement discounts, personalized reminders, and subscription models. |
 
-5️⃣ **Create A Model For Predicting Churn** 
+## 5️⃣ **Create A Model For Predicting Churn** 
 
  The model will be trained using the top 5 features impacting churn behavior: Tenure, CashbackAmount, WarehouseToHome, Complain, and DaySinceLastOrder.
  
@@ -530,7 +531,7 @@ pca.explained_variance_ratio_
 
 ### 📝 **Apply Model & Clustering**
 
-**1. Choosing K**
+**Step 1: Choosing K**
 
 [In 14]:
 
@@ -558,7 +559,7 @@ plt.show()
 
 -> We will choose **K=4**
 
-**2. Apply Model**
+**Step 2: Apply Model**
 
 ```python
 # Initialize KMeans with 4 clusters
@@ -573,7 +574,7 @@ df_churned_encoded['cluster'] = predicted_labels
 df_churned['cluster'] = predicted_labels
 ```
 
-**3. Evaluate Model**
+**Step 3: Evaluate Model**
 
 [In 15]:
 
@@ -585,7 +586,7 @@ print(sil_score)
 
 [Out 15]: 0.2281232336641304
 
-**4. Visulize Distribution & Clusters**
+**Step 4: Visulize Distribution & Clusters**
 
 ![image](https://github.com/user-attachments/assets/aec05f64-9c48-4090-a4ea-55bb56bd7a0b)
 
@@ -601,7 +602,7 @@ print(sil_score)
 ### **💡Suggestions:**
 - **Use clustering methods that do not require a fixed number of clusters**. We suggest trying a **Hierarchical Clustering model**, which can provide better-defined clusters without the need to predefine the number of clusters.
 
-**5. Apply Dendrogram**
+**Step 5: Apply Dendrogram**
 
 [In 16]:
 
@@ -619,6 +620,29 @@ plt.show()
 
 ![image](https://github.com/user-attachments/assets/5261d06a-9fc9-4b92-9f3d-0ab91deef307)
 
+**Step 6: Evaluate Dendrogram**
+
+[In 17]:
+```python
+# Apply Agglomerative Clustering with 3 clusters
+agg_clustering = AgglomerativeClustering(n_clusters=3)
+clusters = agg_clustering.fit_predict(pca_df)
+
+# Calculate the Silhouette Score
+sil_score = silhouette_score(pca_df, clusters)
+print(f"Silhouette Score: {sil_score}")
+
+# Visualize the clusters (if pca_df is 2D or 3D)
+plt.scatter(pca_df.iloc[:, 0], pca_df.iloc[:, 1], c=clusters, cmap='viridis')
+plt.title('Agglomerative Clustering Results')
+plt.xlabel('PCA 1')
+plt.ylabel('PCA 2')
+plt.show()
+```
+
+[Out 17]:
+
+Silhouette Score: 0.1319127936694198 -> **too low**
 
 ## 7️⃣ **Recommendation for Clustering**
 
