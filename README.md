@@ -1,5 +1,6 @@
-# **Churn Prediction & Segmentation For Retention Strategy | Ecommerce | Machine Learning - Python**
+# 🤖 Churn Prediction & Segmentation For Retention Strategy For Ecommerce | Machine Learning - Python
 
+![image](https://github.com/user-attachments/assets/3f60f330-4ff5-4d4c-9d6d-f7b88ebf9c8e)
 
 **Author:** Nguyễn Hoàng Đỗ UYên
 
